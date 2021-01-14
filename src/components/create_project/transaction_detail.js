@@ -13,7 +13,7 @@ export default function TransactionDetail(props) {
       {isLoading && (<div>Loading</div>)}
       {isError && <p>Something went wrong...</p>}
       {apiData && (
-        <div className="border border-blue-300 rounded-lg space-y-4">
+        <div className="border border-blue-300 rounded-lg space-y-4 shadow-2xl">
           <div className="p-8 ">
             <div className="">
               <Attribute
