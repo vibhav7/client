@@ -3,9 +3,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        Vibhav
-      </header>
+      <div className="App-container text-red-500">VIBHAV</div>
     </div>
   );
 }
