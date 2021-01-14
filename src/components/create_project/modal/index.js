@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import closeIcon from "../../assets/icon/close.svg"
-import useFetchButton from "../../hooks/useFetchButton";
-import apiUrl from "../../utils/apiUrl";
-import CreateProject from "../create_project"
+import { useHistory } from "react-router-dom";
+
+import useFetchButton from "../../../hooks/useFetchButton";
+import apiUrl from "../../../utils/apiUrl";
 import getScreenUI from "./getScreeUI";
+
 export default function Modal(props) {
+  const history = useHistory()
   const [projectCost, setProjectCost] = useState(0)
   const [activeScreenId, setActiveScreenID] = useState(0)
   const { control, register, handleSubmit, setValue, errors } = useForm();
@@ -30,13 +32,24 @@ export default function Modal(props) {
   }
 
   function handleFormSubmit(data, e) {
+    console.log(e.target.name)
     console.log(data)
-    fetchDATA(apiUrl.create_project, "post", data, e.target.name)
-      .then((res) => {
-        console.log(res)
-        if (res)
-          setActiveScreenID(1)
-      })
+    switch (e.target.name) {
+      case "create_project":
+        fetchDATA(apiUrl.create_project, "post", data, e.target.name)
+          .then((res) => {
+            console.log(res)
+            if (res)
+              setActiveScreenID(1)
+          })
+        break;
+      case "pay":
+        history.push("/pay");
+        break;
+      default:
+        break;
+    }
+
   }
 
   function onInputChangeHandler(e) {

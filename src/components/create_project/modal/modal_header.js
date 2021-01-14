@@ -1,5 +1,5 @@
-import closeIcon from "../../assets/icon/close.svg"
-import backIcon from "../../assets/icon/back.svg"
+import closeIcon from "../../../assets/icon/close.svg"
+import backIcon from "../../../assets/icon/back.svg"
 
 export default function ModalHeader(props) {
   return (

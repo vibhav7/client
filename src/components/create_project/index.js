@@ -4,8 +4,11 @@ import TextInput from "../ui/input";
 import TextArea from "../ui/text_area";
 import uploadIcon from "../../assets/icon/upload.svg"
 import ApiButton from "../ui/api_button";
-import ModalHeader from "../modal/modal_header";
+// import ModalHeader from "../modal/modal_header";
 import DateTimeInput from "../ui/date_time_input";
+import ModalHeader from "./modal/modal_header";
+import IconLabel from "../ui/icon_label";
+import getTotalTransactionAmount, { getCleverXFees } from "../../utils/transactionFees";
 const inputFields = [
   {
     label: "Name",
@@ -76,8 +79,8 @@ export default function CreateProject(props) {
             {inputFields.map((inputField, i) => returnInputElement({ i, ...props, ...inputField }))}
           </div>
           <div className="space-y-4">
-            <Attribute label="CleverX transaction fees (20%)" value={transactionFees} />
-            <Attribute label="Total amount in $USD" value={totalAmount.toFixed(2)} />
+            <Attribute label="CleverX transaction fees (20%)" value={getCleverXFees(props.projectCost)} />
+            <Attribute label="Total amount in $USD" value={getTotalTransactionAmount(props.projectCost)} />
           </div>
         </div>
         <div className="flex justify-center">
@@ -94,11 +97,7 @@ function returnInputElement(value) {
       return <TextArea key={value.i} {...value} />
       break;
     case "file":
-      return (
-        <div key={value.i} className="flex space-x-2 items-center rounded border border-gray-300 w-full pl-5 py-3 text-sm text-gray-400">
-          <img src={uploadIcon} alt="" className="h-5 w-5" />
-          <div>Upload attachment</div>
-        </div>)
+      return <IconLabel icon={uploadIcon} label="Upload attachment" />
     case "datetime":
       return <DateTimeInput key={value.i} {...value} />
     default:
