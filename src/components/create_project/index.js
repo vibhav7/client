@@ -1,14 +1,11 @@
 import validateFutureDate from "../../utils/validateFutureDate";
 import Attribute from "../ui/attribute";
-import Button from "../ui/button";
 import TextInput from "../ui/input";
 import TextArea from "../ui/text_area";
 import uploadIcon from "../../assets/icon/upload.svg"
 import ApiButton from "../ui/api_button";
-import closeIcon from "../../assets/icon/close.svg"
 import ModalHeader from "../modal/modal_header";
-
-
+import DateTimeInput from "../ui/date_time_input";
 const inputFields = [
   {
     label: "Name",
@@ -48,7 +45,7 @@ const inputFields = [
   {
     label: "Description",
     name: "date",
-    type: "date",
+    type: "datetime",
     placeholder: "Delivery Date",
     validation: {
       required: true,
@@ -72,11 +69,6 @@ export default function CreateProject(props) {
   const totalAmount = parseFloat(props.projectCost * 0.2) + parseFloat(props.projectCost)
   return (
     <>
-      {/* <div className="p-8 px-12 md:py-6 flex justify-between border-b space-x-16">
-        <img src="" />
-        <div className="text-2xl font-medium">{props.modalTitle}</div>
-        <img onClick={props.close} className="cursor-pointer" src={closeIcon} />
-      </div> */}
       <ModalHeader close={props.close} modalTitle="Create Project" />
       <div className="space-y-12 md:max-w-xl p-8">
         <div className="space-y-8">
@@ -103,10 +95,12 @@ function returnInputElement(value) {
       break;
     case "file":
       return (
-        <div className="flex space-x-2 items-center rounded border border-gray-300 w-full pl-5 py-3 text-sm text-gray-400">
+        <div key={value.i} className="flex space-x-2 items-center rounded border border-gray-300 w-full pl-5 py-3 text-sm text-gray-400">
           <img src={uploadIcon} alt="" className="h-5 w-5" />
           <div>Upload attachment</div>
         </div>)
+    case "datetime":
+      return <DateTimeInput key={value.i} {...value} />
     default:
       return <TextInput key={value.i} {...value} />
       break;
