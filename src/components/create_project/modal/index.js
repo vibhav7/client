@@ -32,13 +32,10 @@ export default function Modal(props) {
   }
 
   function handleFormSubmit(data, e) {
-    console.log(e.target.name)
-    console.log(data)
     switch (e.target.name) {
       case "create_project":
         fetchDATA(apiUrl.create_project, "post", data, e.target.name)
           .then((res) => {
-            console.log(res)
             if (res)
               setActiveScreenID(1)
           })
