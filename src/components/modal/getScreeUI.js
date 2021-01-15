@@ -1,5 +1,5 @@
-import CreateProject from ".."
-import ChooseCard from "../choose_card"
+import CreateProject from "../create_project"
+import ChooseCard from "../create_project/choose_card"
 
 export default function getScreenUI(compParams) {
   switch (compParams.activeScreenId) {

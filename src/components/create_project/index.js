@@ -6,7 +6,7 @@ import uploadIcon from "../../assets/icon/upload.svg"
 import ApiButton from "../ui/api_button";
 // import ModalHeader from "../modal/modal_header";
 import DateTimeInput from "../ui/date_time_input";
-import ModalHeader from "./modal/modal_header";
+import ModalHeader from "../modal/modal_header";
 import IconLabel from "../ui/icon_label";
 import getTotalTransactionAmount, { getCleverXFees } from "../../utils/transactionFees";
 const inputFields = [
@@ -68,8 +68,6 @@ const inputFields = [
   },
 ]
 export default function CreateProject(props) {
-  const transactionFees = parseFloat(props.projectCost * 0.2).toFixed(2)
-  const totalAmount = parseFloat(props.projectCost * 0.2) + parseFloat(props.projectCost)
   return (
     <>
       <ModalHeader close={props.close} modalTitle="Create Project" />
