@@ -54,11 +54,13 @@ const CheckBox = props => {
                 />
                 <label className="cursor-pointer absolute flex justify-between px-8 items-center top-0 left-0 w-full h-full m-auto"
                   htmlFor={i + props.label + optionItem.value}>
-                  <div className="flex items-center">
-                    {(activeState ? activeState == (i + props.label + optionItem.value) : props.default.value == optionItem.value) && <img className="h-5 w-5" src={greenTick} />}
+                  <div className="flex items-center space-x-2">
+                    {(activeState ? activeState == (i + props.label + optionItem.value) : props.default.value == optionItem.value) ? <img className="h-5 w-5" src={greenTick} /> : <div className="w-5 h-5"></div>}
                     <img className="h-7 w-12" src={visaImage} alt="" />
                   </div>
-                  {optionItem.checkbox_label}
+                  <span className="text-xs font-light">
+                    {optionItem.checkbox_label}
+                  </span>
                 </label>
               </div>
             );

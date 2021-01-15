@@ -9,6 +9,7 @@ export default function TextArea(props) {
   return (
     <div className="w-full flex flex-col justify-items-stretch space-y-1">
       <textarea
+        defaultValue={props.formData[props.name]}
         type={props.type}
         className={clsName}
         disabled={props.disabled}

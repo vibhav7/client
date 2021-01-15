@@ -15,6 +15,7 @@ export default function TextInput(props) {
         disabled={props.disabled}
         placeholder={props.placeholder}
         ref={props.register(props.validation)}
+        defaultValue={props.formData[props.name]}
         name={props.name}
       />
       {errors ? <ErrorToast text={errors ? errors.message : null} /> : null}
