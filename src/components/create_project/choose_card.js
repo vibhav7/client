@@ -1,9 +1,10 @@
 import Button from "../ui/button";
 import CheckBoxInput from "../ui/checkbox";
-import ModalHeader from "./modal/modal_header";
+// import ModalHeader from "./modal/modal_header";
 
 import IconLabel from "../ui/icon_label";
 import addIcon from "../../assets/icon/add.svg"
+import ModalHeader from "../modal/modal_header";
 
 const inputFields = [{
   name: "card",
