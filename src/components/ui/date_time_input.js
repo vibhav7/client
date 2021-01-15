@@ -6,7 +6,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 export default function DateTimeInput(props) {
   const errors = props.errors ? props.errors[props.name] : null
-  let clsName = "pl-4 w-full h-12 border border-gray-300 rounded bg-white placeholder-gray-400"
+  let clsName = "pl-4 w-full h-12 border border-gray-300 rounded bg-white placeholder-gray-400 text-gray-700"
   if (errors) {
     clsName = "pl-4 w-full h-12 border border-red-500 rounded bg-red-200 placeholder-red-800"
   }
