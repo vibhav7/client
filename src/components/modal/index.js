@@ -2,14 +2,14 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 
-import useFetchButton from "../../../hooks/useFetchButton";
-import apiUrl from "../../../utils/apiUrl";
+import useFetchButton from "../../hooks/useFetchButton";
+import apiUrl from "../../utils/apiUrl";
 import getScreenUI from "./getScreeUI";
 
 export default function Modal(props) {
   const history = useHistory()
   const [projectCost, setProjectCost] = useState(0)
-  const [activeScreenId, setActiveScreenID] = useState(0)
+  const [activeScreenId, setActiveScreenID] = useState(props.activeScreenId)
   const { control, register, handleSubmit, setValue, errors } = useForm();
   const { isLoading, apiData, apiError, apiButtonId, fetchDATA } = useFetchButton()
   const modalComponentArgs = {
